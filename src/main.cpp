@@ -1,32 +1,36 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 int main() {
 
-    int grade1, grade2, grade3, grade4, grade5;
-    float average;
-    const int numGrades = 5;
+    int numGrades, grade;
+    double average;
+    vector<int> grades;
+    int total = 0;
 
-    cout << "Enter a grade 1: ";
-    cin >> grade1;
+    
 
-    cout << "Enter a grade 2: ";
-    cin >> grade2;
+    cout << "Please enter the number of grades to calculate: ";
+    cin >> numGrades;
 
-    cout << "Enter a grade 3: ";
-    cin >> grade3;
+    for(int i = 1; i<numGrades+1; i++){
+        cout << "Enter the grade " << i << ":";
+        cin >> grade;
+        grades.push_back(grade);
+    }
+    for (int i = 0; i < grades.size(); i++)
+    {
+        total += grades[i];
+    }
 
-    cout << "Enter a grade 4: ";
-    cin >> grade4;
+    average = total/grades.size();
+    
 
-    cout << "Enter a grade 5: ";
-    cin >> grade5;    
+    cout << endl << "------------- Great Average --------" << endl;
+    cout << "Num of grades: " << numGrades << endl;
+    cout << "Average: " << average << endl << endl;
 
-    average = (grade1+grade2+grade3+grade4+grade5)/numGrades;
-
-    printf("The average is %.2f", average);
-    cout << endl;
 
     return 0;
 }
